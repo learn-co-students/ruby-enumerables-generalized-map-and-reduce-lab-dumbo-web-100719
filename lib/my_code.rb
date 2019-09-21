@@ -1,18 +1,29 @@
-def map (source_array, block)
+def map (source_array)
   new = []
   i = 0
-  while i < source_array.length do
-    new.push(source_array[i]*#{block})
+  while i < source_array.length
+    new.push(yield(source_array[i]))
     i+=1
   end
-  yield return new
-end 
+  new
+end
 
-map(source_array){|n| n * -1}
 
-map(source_array){|n| n * 1}
+def reduce (source_array, starting_point = nil)
+  if starting_point 
+  total = starting_point
+  i = 0
+  
+else total = source_array[0]
+  i = 1
+end
+  
+  while i < source_array.length  
+    total = yield(total, source_array[i])
+    i+=1 
+  end
+  total
+end
 
-map(source_array){|n| n * 2}
 
-map(source_array{|n| n ** 2}
 
