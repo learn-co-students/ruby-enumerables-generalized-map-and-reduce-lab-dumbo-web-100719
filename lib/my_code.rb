@@ -14,9 +14,7 @@ end
 
 
 def reduce(array, start = 0)
-  i = 0
-  j = 0
-  total = 0
+  i = 0 
   truthy = false 
   
   while i < array.length do 
