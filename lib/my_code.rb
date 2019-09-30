@@ -7,16 +7,19 @@ def map(source_array)
   noo_array
 end
 
-def reduce(source_array, starting_point=nil, &block)
-  #total= starting_point
-  
-  #source_array.each do |elem|
-#    total= block.call(total,elem)
-#  end
- #total
-if starting_point.nil?
-   source_array.reduce(&block)
+def reduce(source_array, starting_point=nil)
+
+  if starting_point
+    total= starting_point
+    i=0
   else
-   source_array.reduce(starting_point, &block)
- end
+    total= source_array[0]
+    i=1
+  end
+
+    source_array[i..source_array.length].each do |elem|
+    total= yield(total,elem)
+  end
+
+ total
 end
