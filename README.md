@@ -224,12 +224,53 @@ end
 
 # Wheat, sure!
 make_sandwich("Creamy peanut butter", "glittering sense of accomplishment") { |b| "#{b} on wheat" }
-
+all? [{ |obj| block } ] → true or false
+all?(pattern) → true or false
 # Bueno!
 make_sandwich("Creamy peanut butter", "glittering sense of accomplishment") { |b| "#{b} on tortilla" }
 
 # Lewis Carroll's Kitchen
 make_sandwich("Creamy peanut butter", "glittering sense of accomplishment") { |b| "#{b.reverse} on #{"bread".reverse}" }
+
+def map_to_negativize(source_array)
+  new = []
+  i = 0
+  while i < source_array.length do
+    new.push( source_array[i] * -1 ) # <== Unique work
+    i += 1
+  end
+  return new
+end
+
+def map_to_no_change(source_array)
+  new = []
+  i = 0
+  while i < source_array.length do
+    new.push( source_array[i] ) # <== Unique work
+    i += 1
+  end
+  return new
+end
+
+def map_to_double(source_array)
+  new = []
+  i = 0
+  while i < source_array.length do
+    new.push( source_array[i] * 2 ) # <== Unique work
+    i += 1
+  end
+  return new
+end
+
+def map_to_square(source_array)
+  new = []
+  i = 0
+  while i < source_array.length do
+    new.push( source_array[i] * source_array[i] ) # <== Unique work
+    i += 1
+  end
+  return new
+end
 
 # Try some more yourself!
 ```
